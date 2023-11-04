@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* 1rem = 16px */
+
+.parent {
+  background: rgb(227, 89, 227);
+  padding: 1rem;
+  min-height: 60vh;
+
+  /* Grid */
+  display: grid;
+  gap: 10px;
+
+  /* 1 freaction = whole column */
+  /* number of value we creates the column */
+  /* auto = only takes as much as it needs */
+  /* repeat(number of column, column size) */
+  /* grid-template-columns: repeat(3, 1fr); */
+
+  /* Number of rows with height */
+  /* 1st row =50px, 2nd row = 1fr, and 3rd row = 20% */
+  /* grid-template-rows: 50px 1fr 20%; */
+
+  /* "grid area" in row */
+  /* all the items should be filled */
+  /* childrens must have grid area name */
+  /* you can't combine seperate location */
+  /* can combine in any row, column */
+  grid-template-areas:
+    "i1 i2 i3 "
+    "i4 i5 i6"
+    "i7 i8 i9";
+}
+
+.parent div {
+  background: rgb(255, 69, 0);
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.item-1 {
+  grid-area: i1;
+}
+.item-2 {
+  grid-area: i2;
+}
+.item-3 {
+  grid-area: i3;
+}
+.item-4 {
+  grid-area: i4;
+}
+.item-5 {
+  grid-area: i5;
+}
+.item-6 {
+  grid-area: i6;
+}
+.item-7 {
+  grid-area: i7;
+}
+.item-8 {
+  grid-area: i8;
+}
+.item-9 {
+  grid-area: i9;
+}
+
+/* putting "9" in no. 2 */
+/* .item-9 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.item-9 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+} */
+
+@media (max-width: 992px) {
+  .parent {
+    display: grid;
+    grid-template-areas:
+      "i1 i2"
+      "i3 i3"
+      "i4 i5"
+      "i6 i6"
+      "i7 i8"
+      "i9 i9";
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 2rem;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .parent {
+    display: grid;
+    /* grid-template-columns: 1fr; */
+    grid-template-areas:
+      "i1"
+      "i2"
+      "i3"
+      "i4"
+      "i5"
+      "i6"
+      "i7"
+      "i8"
+      "i9";
+  }
+  .circle {
+    display: none;
+  }
+}
